@@ -1,24 +1,28 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
-
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
     <section>
-      <div className="grid grid-cols-1 lg:grid-cols-12"    >
-        <div className="grid col-span-8 place-self-start place-items-start lg:place-items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12">
+        <motion.div
+          initial={{ opacity: 0, scale:0.5}}
+          animate={{ opacity: 1,scale:1 }}
+          transition={{ duration: 0.3 }}
+          className="grid col-span-8 place-self-start place-items-start lg:place-items-start"
+        >
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold text-white lg:text-6xl">
             <span className="text-6xl text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
               Hello, I am {""}
             </span>
-    <br></br>
+            <br></br>
             <TypeAnimation
               sequence={[
-              
                 "Anmol Deep",
-                1000, 
+                1000,
                 "Web Developer",
                 1000,
                 "Full Stack Developer",
@@ -28,7 +32,6 @@ const HeroSection = () => {
               ]}
               wrapper="span"
               speed={50}
-          
               repeat={Infinity}
             />
           </h1>
@@ -45,8 +48,11 @@ const HeroSection = () => {
               </span>
             </button>
           </div>
-        </div>
-        <div className="col-span-4 mt-4 place-self-center lg:mt-0">
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, scale:0.5}}
+          animate={{ opacity: 1,scale:1 }}
+          transition={{ duration: 0.3 }} className="col-span-4 mt-4 place-self-center lg:mt-0">
           <div className="rounded-full bg-[#181818] w-[200px] h-[200px] lg:w-[300px] lg:h-[300px] relative">
             <Image
               src="/hero-image.png"
@@ -56,7 +62,7 @@ const HeroSection = () => {
               height={300}
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
